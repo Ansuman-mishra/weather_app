@@ -1,0 +1,275 @@
+* {
+  padding: 0;
+  margin: 0;
+  /* font-family: "Jost", sans-serif; */
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  background: #f3f2ef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+  perspective: 1000px;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+html {
+  background: #eee;
+}
+
+.container {
+  /* background-color: aquamarine; */
+  width: 60%;
+  min-height: 91vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 20vw;
+  height: 60vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 3rem rgba(0, 0, 0, 0.2);
+  background: #a5bbdd;
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  min-width: 20rem;
+  min-height: 35rem;
+  transform-style: preserve-3d;
+}
+.hidden {
+  position: relative;
+  width: 20vw;
+  height: 60vh;
+  min-width: 20rem;
+  min-height: 35rem;
+  overflow: hidden;
+  border-radius: 40%;
+}
+
+.wave {
+  opacity: 0.3;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  background: white;
+  width: 50rem;
+  height: 50rem;
+  margin-left: -25rem;
+  margin-top: -25rem;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  
+  animation: drift 3000ms infinite linear;
+  z-index: 1;
+}
+
+.wave.-three {
+  animation: drift 5000ms infinite linear;
+  z-index: 2 !important;
+  opacity: 0.2;
+}
+
+.wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: 0.1;
+  z-index: 3 !important;
+}
+
+.box:after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+  z-index: 4;
+}
+
+.location1 {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 3rem;
+  transition: all 0.75s ease-out;
+}
+
+.fa-street-view {
+  animation: rotates 3s linear infinite alternate;
+}
+
+@keyframes rotates {
+  from {
+    transform: translateX(-0.5rem);
+  }
+  to {
+    transform: translateX(0.5rem);
+  }
+}
+
+#date {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #528cf0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.75s ease-out;
+}
+
+.temp {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 3rem;
+  transition: all 0.75s ease-out;
+}
+
+.tempmin_max {
+  text-align: center;
+  margin-top: 0.3rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #e97272;
+  transition: all 0.75s ease-out;
+}
+
+#weathercon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  position: absolute;
+  top: 15%;
+  left: 40%;
+}
+
+#weathercon .fas {
+  font-size: 8rem;
+  transition: all 0.75s ease-out;
+}
+.model {
+  animation: fas-anime 3s linear infinite alternate;
+}
+.location2 {
+  transition: all 0.75s ease-out;
+}
+
+@keyframes fas-anime {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+@media (max-width: 1300px) {
+  .box {
+    width: 35vw;
+    height: 70vh;
+  }
+  .hidden {
+    width: 35vw;
+    height: 70vh;
+  }
+
+  .wave {
+    top: 85%;
+  }
+
+  #weathercon {
+    font-size: 5em;
+  }
+
+  .info {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 879px) {
+  .box {
+    width: 49vw;
+    height: 70vh;
+  }
+  .hidden {
+    width: 49vw;
+    height: 70vh;
+  }
+
+  .wave {
+    top: 85%;
+  }
+
+  #weathercon {
+    font-size: 5em;
+  }
+
+  .info {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 90vw;
+    height: 80vh;
+  }
+  .hidden {
+    width: 60vw;
+    height: 80vh;
+  }
+
+  .wave {
+    top: 85%;
+  }
+
+  #weathercon {
+    font-size: 5em;
+  }
+
+  .info {
+    font-size: 1.5rem;
+  }
+}
+@media (max-height: 500px) {
+  .box {
+    height: 80vh;
+  }
+
+  .wave {
+    top: 115%;
+  }
+}
+body > span {
+  width: 100vw;
+  text-align: center;
+  color: grey;
+}
+/* .model {
+  position: relative;
+} */
