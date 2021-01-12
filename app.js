@@ -11,13 +11,13 @@ const replaceVal = (tempval, orgval) => {
   temp = temp.replace("{%tempmax%}", orgval.main.temp_max);
   temp = temp.replace("{%location%}", orgval.name);
   temp = temp.replace("{%country%}", orgval.sys.country);
-  temp = temp.replace("%tempstatus%", orgval.weather[0].main);
+  temp = temp.replace("{%tempstatus%}", orgval.weather[0].main);
   return temp;
 };
 const server = http.createServer((req, res) => {
   if (req.url == "/") {
     requests(
-      "http://api.openweathermap.org/data/2.5/weather?q=puri&appid=a8d79544208b94b2506998366bbed205"
+      "http://api.openweathermap.org/data/2.5/weather?q=puri&units=metric&appid=a8d79544208b94b2506998366bbed205"
     )
       .on("data", (chunk) => {
         const objData = JSON.parse(chunk);

@@ -297,10 +297,6 @@
                   text-align: center;
                   color: grey;
             }
-
-            /* .model {
-  position: relative;
-} */
       </style>
       <title>Weather App</title>
 </head>
@@ -385,7 +381,12 @@
             } else if (tempStatus == "Rainy") {
                   location3.innerHTML =
                         "<i class='fas  fa-cloud-rain' style='color: #a4b0be;'></i>";
-            } else {
+            }
+            else if (tempStatus == "Fog") {
+                  location3.innerHTML =
+                        "<i class='fas  fa-smog' style='color: #a4b0be;'></i>";
+            }
+            else {
                   location3.innerHTML =
                         "<i class='fas  fa-cloud' style='color:#f1f2f6;'></i>";
             }
